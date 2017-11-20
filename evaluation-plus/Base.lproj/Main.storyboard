@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1IF-sj-bbr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ly1-sj-uVa"/>
                             <constraint firstItem="1IF-sj-bbr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RWM-so-LWB"/>
@@ -40,6 +40,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="1IF-sj-bbr" id="tAl-l2-5xu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,7 +121,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EnO-gr-KQ9" firstAttribute="top" secondItem="S3D-qU-Wh7" secondAttribute="top" id="ELA-4K-J4J"/>
                             <constraint firstItem="EnO-gr-KQ9" firstAttribute="trailing" secondItem="S3D-qU-Wh7" secondAttribute="trailing" id="fpZ-sa-jIJ"/>
@@ -135,6 +138,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="EnO-gr-KQ9" id="COp-Fe-BBD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRH-Nr-DVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +243,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HWC-Bt-8ZT" firstAttribute="trailing" secondItem="i7x-bP-Om3" secondAttribute="trailing" id="Nig-ow-rJH"/>
                             <constraint firstItem="HWC-Bt-8ZT" firstAttribute="leading" secondItem="i7x-bP-Om3" secondAttribute="leading" id="dhm-lr-tBS"/>
@@ -254,6 +260,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="HWC-Bt-8ZT" id="VEl-D8-UN7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hap-Ct-w51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
