@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600A01FC313D0005563A6 /* AppDelegate.swift */; };
-		9BB600A31FC313D0005563A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600A21FC313D0005563A6 /* ViewController.swift */; };
+		9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */; };
 		9BB600A61FC313D0005563A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB600A41FC313D0005563A6 /* Main.storyboard */; };
 		9BB600A81FC313D0005563A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB600A71FC313D0005563A6 /* Assets.xcassets */; };
 		9BB600AB1FC313D0005563A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB600A91FC313D0005563A6 /* LaunchScreen.storyboard */; };
+		9BB600B61FC3390A005563A6 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600B51FC3390A005563A6 /* ProjectViewController.swift */; };
+		9BB600B81FC339D4005563A6 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600B71FC339D4005563A6 /* StudentViewController.swift */; };
+		9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600B91FC33A07005563A6 /* NewProjectTableViewController.swift */; };
+		9BB600BC1FC33A38005563A6 /* NewStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600BB1FC33A38005563A6 /* NewStudentTableViewController.swift */; };
+		9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9BB6009D1FC313D0005563A6 /* evaluation-plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation-plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB600A01FC313D0005563A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BB600A21FC313D0005563A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
 		9BB600A51FC313D0005563A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BB600A71FC313D0005563A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BB600AA1FC313D0005563A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BB600AC1FC313D0005563A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BB600B51FC3390A005563A6 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		9BB600B71FC339D4005563A6 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		9BB600B91FC33A07005563A6 /* NewProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectTableViewController.swift; sourceTree = "<group>"; };
+		9BB600BB1FC33A38005563A6 /* NewStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentTableViewController.swift; sourceTree = "<group>"; };
+		9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,43 @@
 		9BB6009F1FC313D0005563A6 /* evaluation-plus */ = {
 			isa = PBXGroup;
 			children = (
+				9BB600B41FC3388E005563A6 /* evaluation */,
+				9BB600B31FC33884005563A6 /* project */,
+				9BB600B21FC33878005563A6 /* student */,
 				9BB600A01FC313D0005563A6 /* AppDelegate.swift */,
-				9BB600A21FC313D0005563A6 /* ViewController.swift */,
 				9BB600A41FC313D0005563A6 /* Main.storyboard */,
 				9BB600A71FC313D0005563A6 /* Assets.xcassets */,
 				9BB600A91FC313D0005563A6 /* LaunchScreen.storyboard */,
 				9BB600AC1FC313D0005563A6 /* Info.plist */,
 			);
 			path = "evaluation-plus";
+			sourceTree = "<group>";
+		};
+		9BB600B21FC33878005563A6 /* student */ = {
+			isa = PBXGroup;
+			children = (
+				9BB600B71FC339D4005563A6 /* StudentViewController.swift */,
+				9BB600BB1FC33A38005563A6 /* NewStudentTableViewController.swift */,
+			);
+			path = student;
+			sourceTree = "<group>";
+		};
+		9BB600B31FC33884005563A6 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				9BB600B51FC3390A005563A6 /* ProjectViewController.swift */,
+				9BB600B91FC33A07005563A6 /* NewProjectTableViewController.swift */,
+			);
+			path = project;
+			sourceTree = "<group>";
+		};
+		9BB600B41FC3388E005563A6 /* evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */,
+				9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */,
+			);
+			path = evaluation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BB600A31FC313D0005563A6 /* ViewController.swift in Sources */,
+				9BB600B81FC339D4005563A6 /* StudentViewController.swift in Sources */,
+				9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */,
+				9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */,
+				9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */,
 				9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */,
+				9BB600BC1FC33A38005563A6 /* NewStudentTableViewController.swift in Sources */,
+				9BB600B61FC3390A005563A6 /* ProjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
