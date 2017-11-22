@@ -17,6 +17,8 @@
 		9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600B91FC33A07005563A6 /* NewProjectTableViewController.swift */; };
 		9BB600BC1FC33A38005563A6 /* NewStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600BB1FC33A38005563A6 /* NewStudentTableViewController.swift */; };
 		9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */; };
+		BEAD2F121FC5195200680119 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F111FC5195200680119 /* Student.swift */; };
+		BEAD2F141FC519BC00680119 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F131FC519BC00680119 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9BB600B91FC33A07005563A6 /* NewProjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectTableViewController.swift; sourceTree = "<group>"; };
 		9BB600BB1FC33A38005563A6 /* NewStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentTableViewController.swift; sourceTree = "<group>"; };
 		9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationDetailsViewController.swift; sourceTree = "<group>"; };
+		BEAD2F111FC5195200680119 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		BEAD2F131FC519BC00680119 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		9BB6009F1FC313D0005563A6 /* evaluation-plus */ = {
 			isa = PBXGroup;
 			children = (
+				BEAD2F101FC5192C00680119 /* entity */,
 				9BB600B41FC3388E005563A6 /* evaluation */,
 				9BB600B31FC33884005563A6 /* project */,
 				9BB600B21FC33878005563A6 /* student */,
@@ -101,6 +106,15 @@
 				9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */,
 			);
 			path = evaluation;
+			sourceTree = "<group>";
+		};
+		BEAD2F101FC5192C00680119 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				BEAD2F111FC5195200680119 /* Student.swift */,
+				BEAD2F131FC519BC00680119 /* Project.swift */,
+			);
+			path = entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +196,8 @@
 				9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */,
 				9BB600BC1FC33A38005563A6 /* NewStudentTableViewController.swift in Sources */,
 				9BB600B61FC3390A005563A6 /* ProjectViewController.swift in Sources */,
+				BEAD2F121FC5195200680119 /* Student.swift in Sources */,
+				BEAD2F141FC519BC00680119 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
