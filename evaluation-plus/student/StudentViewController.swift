@@ -33,12 +33,16 @@ class StudentViewController: UIViewController {
         
         setUpNavigationBar()
         
-        loadStudents()
-        
         tableView.tableFooterView = UIView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadStudents()
+        tableView.reloadData()
+    }
+    
     func loadStudents() {
+        //userDefaults.removeObject(forKey: "students")
         if let studentsDictionnary = userDefaults.object(forKey:"students") as? Data {
             let decodedStudents = NSKeyedUnarchiver.unarchiveObject(with: studentsDictionnary) as! [Int: Student]
             
@@ -137,13 +141,15 @@ extension StudentViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 removedStudent = students.remove(at: indexPath.item)
             }
-
-            var persistentStudents = userDefaults.object(forKey:"students") as? [Int: Student]
-            persistentStudents![removedStudent.id] = nil
             
-            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: persistentStudents!)
-            userDefaults.set(encodedData, forKey: "students")
-            userDefaults.synchronize()
+            if let persistentStudents = userDefaults.object(forKey: "students") as? Data {
+                var decodedStudents = NSKeyedUnarchiver.unarchiveObject(with: persistentStudents) as! [Int: Student]
+                decodedStudents[removedStudent.id] = nil
+                
+                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: decodedStudents)
+                userDefaults.set(encodedData, forKey: "students")
+                userDefaults.synchronize()
+            }
             
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)

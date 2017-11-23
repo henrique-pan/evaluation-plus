@@ -8,15 +8,26 @@
 
 import Foundation
 
-class Project {
+class Project: NSObject, NSCoding {
     
     var name: String!
     
-    var description: String!
+    var projectDescription: String!
     
-    init(name: String!, description: String!) {
+    init(name: String!, projectDescription: String!) {
         self.name = name
-        self.description = description
+        self.projectDescription = projectDescription
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let projectDescription = aDecoder.decodeObject(forKey: "projectDescription") as! String
+        self.init(name: name, projectDescription: projectDescription)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(projectDescription, forKey: "projectDescription")
     }
     
 }

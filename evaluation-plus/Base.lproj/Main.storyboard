@@ -120,6 +120,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-gr-KQ9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xt1-ed-KjR" id="CEs-c1-beB"/>
+                                    <outlet property="delegate" destination="Xt1-ed-KjR" id="Sl8-BE-Vz4"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -134,13 +138,14 @@
                     <navigationItem key="navigationItem" title="Projects" id="Ecc-Ph-6h9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fY5-DC-Ckt">
                             <connections>
-                                <segue destination="Gqg-Hd-ce6" kind="show" id="o9Y-fD-wDu"/>
+                                <segue destination="Gqg-Hd-ce6" kind="show" identifier="addNewProjectSegue" id="o9Y-fD-wDu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="EnO-gr-KQ9" id="COp-Fe-BBD"/>
+                        <segue destination="Gqg-Hd-ce6" kind="show" identifier="editProjectSegue" id="qKx-KX-dZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRH-Nr-DVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,6 +231,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textFieldDescription" destination="Tsd-Fq-JU9" id="SfG-CX-al8"/>
+                        <outlet property="textFieldName" destination="Mh8-1D-lie" id="ef4-f2-zMW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ot-U4-xdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -422,5 +431,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="DCY-iX-b0I"/>
+        <segue reference="o9Y-fD-wDu"/>
     </inferredMetricsTieBreakers>
 </document>

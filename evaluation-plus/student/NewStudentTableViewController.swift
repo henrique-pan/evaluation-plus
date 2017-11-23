@@ -57,8 +57,9 @@ class NewStudentTableViewController: UITableViewController {
                 
                 var encodedData: Data!
                 
-                if var students = userDefaults.object(forKey: "students") as? [Int: Student] {
-                    students[id] = student
+                if let students = userDefaults.object(forKey: "students") as? Data {
+                    var decodedStudents = NSKeyedUnarchiver.unarchiveObject(with: students) as! [Int: Student]
+                    decodedStudents[id] = student
                     
                     encodedData = NSKeyedArchiver.archivedData(withRootObject: students)
                 } else {
