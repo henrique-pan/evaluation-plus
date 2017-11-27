@@ -19,6 +19,8 @@
 		9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */; };
 		BEAD2F121FC5195200680119 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F111FC5195200680119 /* Student.swift */; };
 		BEAD2F141FC519BC00680119 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F131FC519BC00680119 /* Project.swift */; };
+		BEAD2F161FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */; };
+		BEAD2F181FCBA16600680119 /* GradeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F171FCBA16600680119 /* GradeDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationDetailsViewController.swift; sourceTree = "<group>"; };
 		BEAD2F111FC5195200680119 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		BEAD2F131FC519BC00680119 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationCriteriaTableViewCell.swift; sourceTree = "<group>"; };
+		BEAD2F171FCBA16600680119 /* GradeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			children = (
 				9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */,
 				9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */,
+				BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */,
+				BEAD2F171FCBA16600680119 /* GradeDelegate.swift */,
 			);
 			path = evaluation;
 			sourceTree = "<group>";
@@ -189,11 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAD2F161FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift in Sources */,
 				9BB600B81FC339D4005563A6 /* StudentViewController.swift in Sources */,
 				9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */,
 				9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */,
 				9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */,
 				9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */,
+				BEAD2F181FCBA16600680119 /* GradeDelegate.swift in Sources */,
 				9BB600BC1FC33A38005563A6 /* NewStudentTableViewController.swift in Sources */,
 				9BB600B61FC3390A005563A6 /* ProjectViewController.swift in Sources */,
 				BEAD2F121FC5195200680119 /* Student.swift in Sources */,
