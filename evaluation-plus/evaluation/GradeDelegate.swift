@@ -10,6 +10,6 @@ import Foundation
 
 protocol GradeDelegate {
     
-    func updateGrade(newValue: String)
+    func updateGrade(newCriteria: String, newValue: Int)
     
 }

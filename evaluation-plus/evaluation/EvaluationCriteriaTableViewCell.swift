@@ -15,7 +15,9 @@ class EvaluationCriteriaTableViewCell: UITableViewCell {
     @IBOutlet weak var labelGrade: UILabel!
     @IBOutlet weak var textFieldComment: UITextField!
     
-    var gradeDelegate: GradeDelegate?    
+    var criteria: String?
+    
+    var gradeDelegate: GradeDelegate?
     
     @IBAction func valueChanged(_ sender: UISlider) {
         self.accessoryType = .checkmark
@@ -39,8 +41,6 @@ class EvaluationCriteriaTableViewCell: UITableViewCell {
             labelGrade.text = "No Value"
         }
         labelGrade.text = "\(roundedValue * 20) %"
-        gradeDelegate!.updateGrade(newValue: "\(roundedValue * 20) %")
-        
-        
+        gradeDelegate!.updateGrade(newCriteria: criteria!, newValue: (roundedValue * 20))
     }
 }
