@@ -168,7 +168,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tz-b8-uGe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <connections>
-                                            <segue destination="oyi-1d-OCT" kind="show" id="2aM-fe-26x"/>
+                                            <segue destination="oyi-1d-OCT" kind="show" identifier="chooseStudentSegue" id="2aM-fe-26x"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -206,7 +206,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-4o-5Kf">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <connections>
-                                            <segue destination="rSx-p7-xzG" kind="show" id="ctO-CQ-21L"/>
+                                            <segue destination="rSx-p7-xzG" kind="show" identifier="chooseProjectSegue" id="ctO-CQ-21L"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -318,6 +318,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseStudentCell" id="EhY-Lf-OL8">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EhY-Lf-OL8" id="dGO-iH-oze">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="oyi-1d-OCT" id="xk0-ew-qow"/>
                             <outlet property="delegate" destination="oyi-1d-OCT" id="dVB-on-wiu"/>

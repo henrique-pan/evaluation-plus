@@ -14,6 +14,8 @@ class ProjectSelectionableViewController: UITableViewController {
     private let userDefaults = UserDefaults.standard
     var projects = [Project]()
     
+    var selectionDelegate: ProjectSelectionDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +44,8 @@ class ProjectSelectionableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "editProjectSegue", sender: tableView)
+        selectionDelegate?.setProject(selectedItem: projects[indexPath.item])
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func unwindCancel(_ sender: UIBarButtonItem) {

@@ -15,8 +15,10 @@ class EvaluationDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelFinalGrade: UILabel!
     
-    var cells = [String:EvaluationCriteriaTableViewCell]()
     var grades = [String:Int]()
+    var cells = [String:EvaluationCriteriaTableViewCell]()
+    var selectedStudent: Student?
+    var selectedProject: Project?
     
     let criterias = ["Criteria 1", "Criteria 2", "Criteria 3", "Criteria 4", "Criteria 5"]
     
@@ -41,10 +43,23 @@ class EvaluationDetailsViewController: UIViewController {
         grades = [String:Int]()
     }
     
+    // MARK: Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "chooseStudentSegue" {
+           let chooseViewController = segue.destination as! StudentSelectionableViewController
+           chooseViewController.selectionDelegate = self
+        } else if segue.identifier == "chooseProjectSegue" {
+            let chooseViewController = segue.destination as! ProjectSelectionableViewController
+            chooseViewController.selectionDelegate = self
+        }
+    }
+    // MARK: Prepare for segue
     
 }
 
-extension EvaluationDetailsViewController: GradeDelegate {
+extension EvaluationDetailsViewController: GradeDelegate, StudentSelectionDelegate, ProjectSelectionDelegate {
     
     func updateGrade(newCriteria: String, newValue: Int) {
         grades[newCriteria] = newValue
@@ -55,12 +70,21 @@ extension EvaluationDetailsViewController: GradeDelegate {
         })
         
         labelFinalGrade.text = "\(sum / grades.count) %"
-    }   
+    }
+    
+    func setStudent(selectedItem: Student!) {
+        selectedStudent = selectedItem
+        labelStudent.text = "\(selectedItem.name!) : \(selectedItem.id!)"
+    }
+    
+    func setProject(selectedItem: Project!) {
+        selectedProject = selectedItem
+        labelStudent.text = "\(selectedItem.name!)"
+    }
     
 }
 
 extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return criterias.count
@@ -72,15 +96,14 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return criterias[section]
-    }
-    
+    }    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: EvaluationCriteriaTableViewCell?
         cell = cells[criterias[indexPath.section]]
         if cell == nil {
             cell = tableView.dequeueReusableCell(withIdentifier: "evaluationCriteriaCell") as? EvaluationCriteriaTableViewCell
-            cell?.gradeDelegate = self
+            cell?.gradeDelegate = self            
             cells[criterias[indexPath.section]] = cell
             cell?.criteria = criterias[indexPath.section]
         }

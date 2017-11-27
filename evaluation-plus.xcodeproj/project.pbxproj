@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9B3474C21FCC7641005C04C1 /* StudentSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3474C11FCC7641005C04C1 /* StudentSelectionTableViewController.swift */; };
 		9B3474C41FCC76C8005C04C1 /* ProjectSelectionableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3474C31FCC76C8005C04C1 /* ProjectSelectionableViewController.swift */; };
+		9B8E46811FCCCC4F009D1E41 /* StudentSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E46801FCCCC4F009D1E41 /* StudentSelectionDelegate.swift */; };
+		9B8E46831FCCCFEA009D1E41 /* ProjectSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E46821FCCCFEA009D1E41 /* ProjectSelectionDelegate.swift */; };
 		9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600A01FC313D0005563A6 /* AppDelegate.swift */; };
 		9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */; };
 		9BB600A61FC313D0005563A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB600A41FC313D0005563A6 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		9B3474C11FCC7641005C04C1 /* StudentSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSelectionTableViewController.swift; sourceTree = "<group>"; };
 		9B3474C31FCC76C8005C04C1 /* ProjectSelectionableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectionableViewController.swift; sourceTree = "<group>"; };
+		9B8E46801FCCCC4F009D1E41 /* StudentSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSelectionDelegate.swift; sourceTree = "<group>"; };
+		9B8E46821FCCCFEA009D1E41 /* ProjectSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectionDelegate.swift; sourceTree = "<group>"; };
 		9BB6009D1FC313D0005563A6 /* evaluation-plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation-plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB600A01FC313D0005563A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		9B3474C01FCC7170005C04C1 /* selection-controller */ = {
 			isa = PBXGroup;
 			children = (
+				9B8E46801FCCCC4F009D1E41 /* StudentSelectionDelegate.swift */,
+				9B8E46821FCCCFEA009D1E41 /* ProjectSelectionDelegate.swift */,
 				9B3474C11FCC7641005C04C1 /* StudentSelectionTableViewController.swift */,
 				9B3474C31FCC76C8005C04C1 /* ProjectSelectionableViewController.swift */,
 			);
@@ -120,10 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				9B3474C01FCC7170005C04C1 /* selection-controller */,
+				BEAD2F171FCBA16600680119 /* GradeDelegate.swift */,
 				9BB600A21FC313D0005563A6 /* EvaluationViewController.swift */,
 				9BB600BD1FC340D9005563A6 /* EvaluationDetailsViewController.swift */,
 				BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */,
-				BEAD2F171FCBA16600680119 /* GradeDelegate.swift */,
 			);
 			path = evaluation;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 				9BB600B81FC339D4005563A6 /* StudentViewController.swift in Sources */,
 				9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */,
 				9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */,
+				9B8E46811FCCCC4F009D1E41 /* StudentSelectionDelegate.swift in Sources */,
 				9B3474C41FCC76C8005C04C1 /* ProjectSelectionableViewController.swift in Sources */,
+				9B8E46831FCCCFEA009D1E41 /* ProjectSelectionDelegate.swift in Sources */,
 				9BB600BE1FC340D9005563A6 /* EvaluationDetailsViewController.swift in Sources */,
 				9BB600A11FC313D0005563A6 /* AppDelegate.swift in Sources */,
 				BEAD2F181FCBA16600680119 /* GradeDelegate.swift in Sources */,
