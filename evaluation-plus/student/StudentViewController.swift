@@ -42,7 +42,7 @@ class StudentViewController: UIViewController {
     }
     
     func loadStudents() {
-        //userDefaults.removeObject(forKey: "students")
+        userDefaults.removeObject(forKey: "students")
         if let studentsDictionnary = userDefaults.object(forKey:"students") as? Data {
             let decodedStudents = NSKeyedUnarchiver.unarchiveObject(with: studentsDictionnary) as! [Int: Student]
             

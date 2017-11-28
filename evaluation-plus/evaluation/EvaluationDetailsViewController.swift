@@ -79,7 +79,7 @@ extension EvaluationDetailsViewController: GradeDelegate, StudentSelectionDelega
     
     func setProject(selectedItem: Project!) {
         selectedProject = selectedItem
-        labelStudent.text = "\(selectedItem.name!)"
+        labelProject.text = "\(selectedItem.name!)"
     }
     
 }
