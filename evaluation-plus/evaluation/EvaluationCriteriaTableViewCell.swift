@@ -16,13 +16,21 @@ class EvaluationCriteriaTableViewCell: UITableViewCell {
     @IBOutlet weak var textFieldComment: UITextField!
     
     var criteria: String?
+    var existentGrade: Int?
     
     var gradeDelegate: GradeDelegate?
     
     @IBAction func valueChanged(_ sender: UISlider) {
         self.accessoryType = .checkmark
-        
-        let roundedValue = Int(sender.value)
+
+        let roundedValue: Int
+        if existentGrade != nil {
+            roundedValue = existentGrade! / 20
+            slider.value = Float(roundedValue)
+            existentGrade = nil
+        } else {
+            roundedValue = Int(sender.value)
+        }
         switch roundedValue {
         case 0:
             labelSliderValue.text = "Unacceptable"

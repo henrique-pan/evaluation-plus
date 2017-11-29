@@ -16,11 +16,14 @@ class EvaluationDetailsViewController: UIViewController {
     @IBOutlet weak var tableViewHeader: UIView!
     @IBOutlet weak var labelFinalGrade: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var selectStudentButton: UIButton!
+    @IBOutlet weak var selectProjectButton: UIButton!
     
     var grades = [String:Int]()
     var cells = [String:EvaluationCriteriaTableViewCell]()
     var selectedStudent: Student?
     var selectedProject: Project?
+    var isNewEvaluation = false
     
     //UserDefaults
     private let userDefaults = UserDefaults.standard
@@ -34,8 +37,28 @@ class EvaluationDetailsViewController: UIViewController {
         tableViewHeader.isHidden = true
         saveButton.isEnabled = false
         
+        if isNewEvaluation {
+            self.title = "Add Evaluation"
+        } else {
+            self.title = "Edit Evaluation"
+            fillEvaluation()
+        }
+        
         tableView.tableFooterView = UIView()
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func fillEvaluation() {
+        //Set title
+        labelStudent.textColor = UIColor.black
+        labelStudent.text = "\(selectedStudent!.name!) : \(selectedStudent!.id!)"
+        labelProject.textColor = UIColor.black
+        labelProject.text = "\(selectedProject!.name!)"
+        selectStudentButton.isEnabled = false
+        selectProjectButton.isEnabled = false
+        tableView.isHidden = false
+        tableViewHeader.isHidden = false
+        saveButton.isEnabled = true
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -54,12 +77,16 @@ class EvaluationDetailsViewController: UIViewController {
             var encodedData: Data!
             
             if let evaluations = userDefaults.object(forKey: "evaluations") as? Data {
-                var decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: evaluations) as! [Project : [Student : Evaluation]]
-                decodedEvaluations[selectedProject!]![selectedStudent!] = evaluation
-                encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedEvaluations)
+                var decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: evaluations) as! [String : [Int : Evaluation]]
+                
+                if decodedEvaluations[selectedProject!.name!] != nil {
+                    decodedEvaluations[selectedProject!.name!]![selectedStudent!.id!] = evaluation
+                    encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedEvaluations)
+                }
+                
             } else {
-                var evaluations = [Project : [Student : Evaluation]]()
-                evaluations[selectedProject!] = [selectedStudent!:evaluation]
+                var evaluations = [String : [Int : Evaluation]]()
+                evaluations[selectedProject!.name!] = [selectedStudent!.id:evaluation]
                 
                 encodedData = NSKeyedArchiver.archivedData(withRootObject: evaluations)
             }
@@ -153,9 +180,15 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
         cell = cells[criterias[indexPath.section]]
         if cell == nil {
             cell = tableView.dequeueReusableCell(withIdentifier: "evaluationCriteriaCell") as? EvaluationCriteriaTableViewCell
-            cell?.gradeDelegate = self            
-            cells[criterias[indexPath.section]] = cell
-            cell?.criteria = criterias[indexPath.section]
+            cell?.gradeDelegate = self
+            let criteria = criterias[indexPath.section]
+            cell?.criteria = criteria
+            if !isNewEvaluation {
+                let grade = grades[criteria]!
+                cell?.existentGrade = grade
+                cell?.valueChanged(cell!.slider)      
+            }
+            cells[criteria] = cell
         }
         
         return cell!

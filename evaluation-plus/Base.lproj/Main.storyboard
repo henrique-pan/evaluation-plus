@@ -40,13 +40,14 @@
                     <navigationItem key="navigationItem" title="Evaluations" id="IC1-gQ-rCs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jCp-8x-8jJ">
                             <connections>
-                                <segue destination="Hgc-TO-k0I" kind="show" id="08a-aG-QXv"/>
+                                <segue destination="Hgc-TO-k0I" kind="show" identifier="addEvaluationSegue" id="08a-aG-QXv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="1IF-sj-bbr" id="tAl-l2-5xu"/>
+                        <segue destination="Hgc-TO-k0I" kind="show" identifier="editEvaluationSegue" id="rGq-0G-KQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -283,6 +284,8 @@
                         <outlet property="labelProject" destination="8Nl-Ys-DAB" id="F44-4V-Qvj"/>
                         <outlet property="labelStudent" destination="Qio-7w-VvF" id="ibT-mJ-Pts"/>
                         <outlet property="saveButton" destination="AEp-pR-FfK" id="0tV-mC-BzE"/>
+                        <outlet property="selectProjectButton" destination="9pm-4o-5Kf" id="YKT-Sy-EAl"/>
+                        <outlet property="selectStudentButton" destination="4tz-b8-uGe" id="dV9-fv-Oo8"/>
                         <outlet property="tableView" destination="4Jb-Fe-Tgn" id="Ccj-uz-YM4"/>
                         <outlet property="tableViewHeader" destination="vE8-YC-s4B" id="w53-mI-9BV"/>
                     </connections>
@@ -299,6 +302,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <connections>
                             <outlet property="dataSource" destination="rSx-p7-xzG" id="fb8-wV-2fZ"/>
                             <outlet property="delegate" destination="rSx-p7-xzG" id="lnv-OU-n1v"/>
@@ -324,6 +328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseStudentCell" id="EhY-Lf-OL8">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -705,5 +710,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="DCY-iX-b0I"/>
         <segue reference="o9Y-fD-wDu"/>
+        <segue reference="08a-aG-QXv"/>
     </inferredMetricsTieBreakers>
 </document>
