@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Student: NSObject, NSCoding {
+class Student: NSObject, NSCoding, NSCopying {
     
     var id: Int!
     
@@ -29,4 +29,11 @@ class Student: NSObject, NSCoding {
         aCoder.encode(id, forKey: "id")
         aCoder.encode(name, forKey: "name")
     }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Student(id: id, name: name)
+        return copy
+    }
+
 }
+

@@ -25,6 +25,7 @@
 		BEAD2F141FC519BC00680119 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F131FC519BC00680119 /* Project.swift */; };
 		BEAD2F161FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */; };
 		BEAD2F181FCBA16600680119 /* GradeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F171FCBA16600680119 /* GradeDelegate.swift */; };
+		BEAD2F1A1FCE68E300680119 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD2F191FCE68E300680119 /* Evaluation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		BEAD2F131FC519BC00680119 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BEAD2F151FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationCriteriaTableViewCell.swift; sourceTree = "<group>"; };
 		BEAD2F171FCBA16600680119 /* GradeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeDelegate.swift; sourceTree = "<group>"; };
+		BEAD2F191FCE68E300680119 /* Evaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				BEAD2F111FC5195200680119 /* Student.swift */,
 				BEAD2F131FC519BC00680119 /* Project.swift */,
+				BEAD2F191FCE68E300680119 /* Evaluation.swift */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				9B3474C21FCC7641005C04C1 /* StudentSelectionTableViewController.swift in Sources */,
 				BEAD2F161FCB83F800680119 /* EvaluationCriteriaTableViewCell.swift in Sources */,
 				9BB600B81FC339D4005563A6 /* StudentViewController.swift in Sources */,
+				BEAD2F1A1FCE68E300680119 /* Evaluation.swift in Sources */,
 				9BB600BA1FC33A07005563A6 /* NewProjectTableViewController.swift in Sources */,
 				9BB600A31FC313D0005563A6 /* EvaluationViewController.swift in Sources */,
 				9B8E46811FCCCC4F009D1E41 /* StudentSelectionDelegate.swift in Sources */,

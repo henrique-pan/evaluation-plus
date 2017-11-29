@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Project: NSObject, NSCoding {
+class Project: NSObject, NSCoding, NSCopying {
     
     var name: String!
     
@@ -28,6 +28,11 @@ class Project: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(projectDescription, forKey: "projectDescription")
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Project(name: name, projectDescription: projectDescription)
+        return copy
     }
     
 }
