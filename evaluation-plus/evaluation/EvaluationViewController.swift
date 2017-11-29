@@ -43,6 +43,7 @@ class EvaluationViewController: UIViewController {
             sections = Array(decodedEvaluations.keys).sorted(by: { p1, p2 in
                 return p1 < p2
             })
+            
         } else {
             evaluations.removeAll()
         }
@@ -112,15 +113,15 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             if let evaluations = userDefaults.object(forKey: "evaluations") as? Data {
-                
                 var decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: evaluations) as! [String : [Int : Evaluation]]
                 let project = sections[indexPath.section]
                 students = Array(decodedEvaluations[project]!.keys).sorted(by: {s1, s2 in
                     return s1 < s2
                 })
                 decodedEvaluations[project]![students[indexPath.item]] = nil
+                
+                print(decodedEvaluations[project]!)
                 
                 let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: decodedEvaluations)
                 userDefaults.set(encodedData, forKey: "evaluations")
