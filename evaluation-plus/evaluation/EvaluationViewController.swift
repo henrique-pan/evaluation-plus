@@ -80,9 +80,6 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        students = Array(evaluations[sections[section]]!.keys).sorted(by: {s1, s2 in
-            return s1 < s2
-        })
         return evaluations[sections[section]]!.count
     }
     
@@ -93,6 +90,12 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.accessoryType = .disclosureIndicator        
+        
+        let project = sections[indexPath.section]
+        let stds = evaluations[project]!
+        students = Array(stds.keys).sorted(by: {s1, s2 in
+            return s1 < s2
+        })
         
         let evaluation = evaluations[sections[indexPath.section]]![students[indexPath.item]]
         
