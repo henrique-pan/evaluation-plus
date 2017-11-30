@@ -27,6 +27,8 @@ class EvaluationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.tableFooterView = UIView()
     }
     
@@ -77,6 +79,9 @@ class EvaluationViewController: UIViewController {
 extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if sections.isEmpty {
+            return 0
+        }
         return sections.count
     }
     
@@ -116,21 +121,35 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
             if let evaluations = userDefaults.object(forKey: "evaluations") as? Data {
                 var decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: evaluations) as! [String : [Int : Evaluation]]
                 let project = sections[indexPath.section]
-                students = Array(decodedEvaluations[project]!.keys).sorted(by: {s1, s2 in
-                    return s1 < s2
+                var shouldRemoveSection = false
+                if decodedEvaluations[project]!.count <= 1 {
+                    decodedEvaluations.removeValue(forKey: project)
+                    shouldRemoveSection = true
+                } else {
+                    students = Array(decodedEvaluations[project]!.keys).sorted(by: {s1, s2 in
+                        return s1 < s2
+                    })
+                    decodedEvaluations[project]![students[indexPath.item]] = nil
+                }
+                sections = Array(decodedEvaluations.keys).sorted(by: { p1, p2 in
+                    return p1 < p2
                 })
-                decodedEvaluations[project]![students[indexPath.item]] = nil
                 
-                print(decodedEvaluations[project]!)
+                self.evaluations = decodedEvaluations
                 
                 let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: decodedEvaluations)
                 userDefaults.set(encodedData, forKey: "evaluations")
                 userDefaults.synchronize()
+                
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                if shouldRemoveSection {
+                    self.tableView.deleteSections([indexPath.section], with: .automatic)
+                }
+                self.tableView.endUpdates()
             }
             
-            self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            self.tableView.endUpdates()
+           
         }
     }
 }

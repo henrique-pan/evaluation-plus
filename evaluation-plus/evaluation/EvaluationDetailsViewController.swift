@@ -78,7 +78,11 @@ class EvaluationDetailsViewController: UIViewController {
             if let evaluations = userDefaults.object(forKey: "evaluations") as? Data {
                 var decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: evaluations) as! [String : [Int : Evaluation]]
                 
-                decodedEvaluations[selectedProject!.name!]![selectedStudent!.id!] = evaluation
+                if decodedEvaluations[selectedProject!.name!] != nil {
+                    decodedEvaluations[selectedProject!.name!]![selectedStudent!.id!] = evaluation
+                } else {
+                    decodedEvaluations[selectedProject!.name!] = [selectedStudent!.id! : evaluation]
+                }
                 encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedEvaluations)
             } else {
                 var evaluations = [String : [Int : Evaluation]]()

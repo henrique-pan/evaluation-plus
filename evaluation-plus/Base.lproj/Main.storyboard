@@ -37,7 +37,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Evaluations" id="IC1-gQ-rCs">
+                    <navigationItem key="navigationItem" title="Evaluations" largeTitleDisplayMode="always" id="IC1-gQ-rCs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jCp-8x-8jJ">
                             <connections>
                                 <segue destination="Hgc-TO-k0I" kind="show" identifier="addEvaluationSegue" id="08a-aG-QXv"/>
