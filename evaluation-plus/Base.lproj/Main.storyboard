@@ -22,6 +22,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1IF-sj-bbr">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="c7q-Mb-FPG"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="rEf-2E-fXu"/>
@@ -105,6 +106,8 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldValueChanged:" destination="EdW-JQ-keF" eventType="valueChanged" id="5yb-vW-nhq"/>
+                                                        <action selector="textFieldValueChanged:" destination="EdW-JQ-keF" eventType="editingChanged" id="AQV-NL-EHr"/>
+                                                        <action selector="textFieldValueChanged:" destination="EdW-JQ-keF" eventType="editingDidEnd" id="PZW-tO-OHs"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -427,6 +430,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-gr-KQ9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Xt1-ed-KjR" id="CEs-c1-beB"/>
                                     <outlet property="delegate" destination="Xt1-ed-KjR" id="Sl8-BE-Vz4"/>
@@ -603,6 +607,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HWC-Bt-8ZT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hjj-TC-SUR" id="dac-jJ-f7a"/>
                                     <outlet property="delegate" destination="hjj-TC-SUR" id="UBc-bv-5JW"/>

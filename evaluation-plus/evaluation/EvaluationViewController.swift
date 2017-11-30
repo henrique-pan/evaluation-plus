@@ -12,7 +12,7 @@ class EvaluationViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var students = [Int]()
+    var students = [(key: Int, value:Student)]()
     var sections = [String]()
     var evaluations = [String : [Int : Evaluation]]()
     
@@ -63,16 +63,30 @@ class EvaluationViewController: UIViewController {
             detailsViewController.isNewEvaluation = false
             
             let selectedEvaluations = evaluations[sections[selectedSection!]]
-            students = Array(selectedEvaluations!.keys).sorted(by: {s1, s2 in
-                return s1 < s2
-            })
+            sortStudents(evaluations: selectedEvaluations)
             
-            detailsViewController.selectedStudent = selectedEvaluations?[students[selectedRow!]]?.student
-            detailsViewController.selectedProject = selectedEvaluations?[students[selectedRow!]]?.project
-            detailsViewController.grades = (selectedEvaluations?[students[selectedRow!]]?.grades)!
+            detailsViewController.selectedStudent = selectedEvaluations?[students[selectedRow!].key]?.student
+            detailsViewController.selectedProject = selectedEvaluations?[students[selectedRow!].key]?.project
+            detailsViewController.grades = (selectedEvaluations?[students[selectedRow!].key]?.grades)!
+            detailsViewController.comments = (selectedEvaluations?[students[selectedRow!].key]?.comments)!
         }
     }
     // MARK: Prepare for segue
+    
+    func sortStudents(evaluations: [Int : Evaluation]!) {
+        students.removeAll()
+        
+        let studentIds = Array(evaluations!.keys)
+        for id in studentIds {
+            students.append((key:id, value: evaluations![id]!.student))
+        }
+        
+        let tempStds = students.sorted(by: { t1, t2 in
+            return t1.value.name! < t2.value.name
+        })
+        
+        students = tempStds
+    }
     
 }
 
@@ -100,11 +114,9 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
         
         let project = sections[indexPath.section]
         let stds = evaluations[project]!
-        students = Array(stds.keys).sorted(by: {s1, s2 in
-            return s1 < s2
-        })
+        sortStudents(evaluations: stds)
         
-        let evaluation = evaluations[sections[indexPath.section]]![students[indexPath.item]]
+        let evaluation = evaluations[sections[indexPath.section]]![students[indexPath.item].key]
         
         cell.textLabel?.text = "\(evaluation!.student.name!) : \(evaluation!.student.id!)"
         
@@ -127,10 +139,8 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
                     decodedEvaluations.removeValue(forKey: project)
                     shouldRemoveSection = true
                 } else {
-                    students = Array(decodedEvaluations[project]!.keys).sorted(by: {s1, s2 in
-                        return s1 < s2
-                    })
-                    decodedEvaluations[project]![students[indexPath.item]] = nil
+                    sortStudents(evaluations: decodedEvaluations[project]!)
+                    decodedEvaluations[project]![students[indexPath.item].key] = nil
                 }
                 sections = Array(decodedEvaluations.keys).sorted(by: { p1, p2 in
                     return p1 < p2

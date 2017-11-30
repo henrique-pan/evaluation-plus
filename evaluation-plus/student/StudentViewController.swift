@@ -117,7 +117,7 @@ extension StudentViewController: UITableViewDelegate, UITableViewDataSource {
             studentsToShow = students
         }
         
-        cell.textLabel?.text = studentsToShow[indexPath.item].name
+        cell.textLabel?.text = "\(studentsToShow[indexPath.item].name!) : \(studentsToShow[indexPath.item].id!)"
         
         return cell
     }

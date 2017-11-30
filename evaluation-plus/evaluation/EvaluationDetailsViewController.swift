@@ -146,8 +146,8 @@ extension EvaluationDetailsViewController: GradeDelegate, StudentSelectionDelega
         let weight = (selectedProject?.weight)! * 10
         let proportion = (((sum/10)*2) * weight) / 100
         
-        labelWeight.text = "\((sum/10)*2) / 100"
-        labelFinalGrade.text = "\(proportion)%"
+        labelWeight.text = "Project: \((sum/10)*2) / 100"
+        labelFinalGrade.text = "Final Grade: \(proportion)%"
     }
     
     func updateComment(newCriteria: String, newComment: String) {
@@ -211,6 +211,9 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
             let grade = grades[criteria]!
             cell?.existentGrade = grade
             cell?.valueChanged(cell!.slider)
+            if !comments.isEmpty && comments[criteria] != nil {
+                cell?.textFieldComment.text = comments[criteria]
+            }
         }
         
         return cell!
