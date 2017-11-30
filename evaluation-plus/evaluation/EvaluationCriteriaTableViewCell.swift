@@ -51,4 +51,8 @@ class EvaluationCriteriaTableViewCell: UITableViewCell {
         labelGrade.text = "\(roundedValue * 20) %"
         gradeDelegate!.updateGrade(newCriteria: criteria!, newValue: (roundedValue * 20))
     }
+    
+    @IBAction func textFieldValueChanged(_ sender: UITextField) {
+        gradeDelegate!.updateComment(newCriteria: criteria!, newComment: textFieldComment.text!)
+    }
 }

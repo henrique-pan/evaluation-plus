@@ -38,6 +38,7 @@ class EvaluationViewController: UIViewController {
     }
     
     func loadEvaluations() {
+        //userDefaults.removeObject(forKey: "projects")
         //userDefaults.removeObject(forKey: "evaluations")
         if let savedEvaluations = userDefaults.object(forKey: "evaluations") as? Data {            
             let decodedEvaluations = NSKeyedUnarchiver.unarchiveObject(with: savedEvaluations) as! [String : [Int : Evaluation]]

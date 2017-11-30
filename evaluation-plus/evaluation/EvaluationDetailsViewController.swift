@@ -18,8 +18,13 @@ class EvaluationDetailsViewController: UIViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var selectStudentButton: UIButton!
     @IBOutlet weak var selectProjectButton: UIButton!
+    @IBOutlet weak var labelWeight: UILabel!
+    @IBOutlet weak var imageArrow: UIImageView!
+    @IBOutlet weak var imageArrowProject: UIImageView!
     
+    var comments = [String:String]()
     var grades = [String:Int]()
+    var weight: Int?
     var cells = [String:EvaluationCriteriaTableViewCell]()
     var selectedStudent: Student?
     var selectedProject: Project?
@@ -59,6 +64,8 @@ class EvaluationDetailsViewController: UIViewController {
         tableView.isHidden = false
         tableViewHeader.isHidden = false
         saveButton.isEnabled = true
+        imageArrow.isHidden = true
+        imageArrowProject.isHidden = true
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -71,7 +78,7 @@ class EvaluationDetailsViewController: UIViewController {
                                           handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            let evaluation = Evaluation(student: selectedStudent!, project: selectedProject, grades: grades)
+            let evaluation = Evaluation(student: selectedStudent!, project: selectedProject, grades: grades, comments: comments)
             
             var encodedData: Data!
             
@@ -98,6 +105,7 @@ class EvaluationDetailsViewController: UIViewController {
             self.tabBarController?.tabBar.isHidden = false
             cells = [String:EvaluationCriteriaTableViewCell]()
             grades = [String:Int]()
+            comments = [String:String]()
         }
     }
     
@@ -106,6 +114,7 @@ class EvaluationDetailsViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         cells = [String:EvaluationCriteriaTableViewCell]()
         grades = [String:Int]()
+        comments = [String:String]()
     }
     
     // MARK: Prepare for segue
@@ -134,7 +143,15 @@ extension EvaluationDetailsViewController: GradeDelegate, StudentSelectionDelega
             sum += grade.value
         })
         
-        labelFinalGrade.text = "\(sum / grades.count) %"
+        let weight = (selectedProject?.weight)! * 10
+        let proportion = (((sum/10)*2) * weight) / 100
+        
+        labelWeight.text = "\((sum/10)*2) / 100"
+        labelFinalGrade.text = "\(proportion)%"
+    }
+    
+    func updateComment(newCriteria: String, newComment: String) {
+        comments[newCriteria] = newComment
     }
     
     func setStudent(selectedItem: Student!) {
@@ -177,18 +194,23 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: EvaluationCriteriaTableViewCell?
-        cell = cells[criterias[indexPath.section]]
-        if cell == nil {
-            cell = tableView.dequeueReusableCell(withIdentifier: "evaluationCriteriaCell") as? EvaluationCriteriaTableViewCell
-            cell?.gradeDelegate = self
-            let criteria = criterias[indexPath.section]
-            cell?.criteria = criteria
-            if !isNewEvaluation {
-                let grade = grades[criteria]!
-                cell?.existentGrade = grade
-                cell?.valueChanged(cell!.slider)      
+        
+        let criteria = criterias[indexPath.section]
+        if cells.isEmpty {
+            for c in criterias {
+                let newCell = tableView.dequeueReusableCell(withIdentifier: "evaluationCriteriaCell") as? EvaluationCriteriaTableViewCell
+                newCell?.gradeDelegate = self
+                newCell?.criteria = c
+                cells[c] = newCell
             }
-            cells[criteria] = cell
+            
+        }
+        
+        cell = cells[criteria]
+        if !isNewEvaluation {
+            let grade = grades[criteria]!
+            cell?.existentGrade = grade
+            cell?.valueChanged(cell!.slider)
         }
         
         return cell!

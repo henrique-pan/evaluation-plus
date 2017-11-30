@@ -73,6 +73,7 @@ class ProjectViewController: UIViewController {
             
             projectViewController.editingName = projectsToShow[selectedRow!].name
             projectViewController.editingDescription = projectsToShow[selectedRow!].projectDescription
+            projectViewController.editingWeight = projectsToShow[selectedRow!].weight
         }
     }
     // MARK: Prepare for segue

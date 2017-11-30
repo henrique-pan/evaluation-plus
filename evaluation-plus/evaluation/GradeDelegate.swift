@@ -11,5 +11,6 @@ import Foundation
 protocol GradeDelegate {
     
     func updateGrade(newCriteria: String, newValue: Int)
+    func updateComment(newCriteria: String, newComment: String)
     
 }
