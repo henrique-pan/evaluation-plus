@@ -27,9 +27,13 @@ class EvaluationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.tableFooterView = UIView()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,6 +111,14 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int)->String? {
         return sections[section]
     }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+        header.backgroundView?.backgroundColor = UIColor(red: 201/255, green: 168/255, blue: 89/255, alpha: 1.0)
+    }
+    // UIColor(red: 201/255, green: 168/255, blue: 89/255, alpha: 1.0)
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -162,5 +174,11 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
             
            
         }
+    }
+}
+
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

@@ -190,7 +190,7 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return criterias[section]
-    }    
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: EvaluationCriteriaTableViewCell?

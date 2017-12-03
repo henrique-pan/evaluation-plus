@@ -81,6 +81,11 @@ class StudentViewController: UIViewController {
 }
 
 extension StudentViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // Configs navigation bar
     func setUpNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -92,8 +97,24 @@ extension StudentViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchBar = searchController.searchBar
         
+        // Customized Search Bar
+        searchBar.tintColor = UIColor.white
+        searchBar.barTintColor = UIColor.white
+        
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.blue
+            textfield.tintColor = UIColor(red: 201/255, green: 168/255, blue: 89/255, alpha: 1.0)
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.white
+                backgroundview.layer.cornerRadius = 10;
+                backgroundview.clipsToBounds = true;
+            }
+        }
+        // Customized Search Bar
+        
         searchBar.delegate = self
     }
+
 }
 
 //MARK: Extension TableViewController
