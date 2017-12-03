@@ -2,16 +2,18 @@
 //  ProjectSelectionableViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-27.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+// Controller to select the project
 class ProjectSelectionableViewController: UITableViewController {
     
     //UserDefaults
     private let userDefaults = UserDefaults.standard
+    
     var projects = [Project]()
     
     var selectionDelegate: ProjectSelectionDelegate?
@@ -19,6 +21,7 @@ class ProjectSelectionableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load the projects
         if let projectsDictionnary = userDefaults.object(forKey:"projects") as? Data {
             let decodedProjects = NSKeyedUnarchiver.unarchiveObject(with: projectsDictionnary) as! [String: Project]
             
@@ -27,9 +30,15 @@ class ProjectSelectionableViewController: UITableViewController {
             })
         }
         
+        // Excludes empty lines
         tableView.tableFooterView = UIView()
     }
     
+    @IBAction func unwindCancel(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: TableView methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
@@ -47,8 +56,5 @@ class ProjectSelectionableViewController: UITableViewController {
         selectionDelegate?.setProject(selectedItem: projects[indexPath.item])
         self.navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func unwindCancel(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    //MARK: TableView methods
 }

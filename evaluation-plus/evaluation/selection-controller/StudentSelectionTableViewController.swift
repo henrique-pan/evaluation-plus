@@ -2,16 +2,18 @@
 //  StudentSelectionTableViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-27.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+// Controller to select the student
 class StudentSelectionableViewController: UITableViewController {
     
     //UserDefaults
     private let userDefaults = UserDefaults.standard
+    
     var students = [Student]()
     
     var selectionDelegate: StudentSelectionDelegate?
@@ -19,6 +21,7 @@ class StudentSelectionableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load students
         if let studentsDictionnary = userDefaults.object(forKey:"students") as? Data {
             let decodedStudents = NSKeyedUnarchiver.unarchiveObject(with: studentsDictionnary) as! [Int: Student]
             
@@ -27,9 +30,15 @@ class StudentSelectionableViewController: UITableViewController {
             })
         }
         
+        // Excludes empty lines
         tableView.tableFooterView = UIView()
     }
     
+    @IBAction func unwindCancel(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: TableView methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students.count
     }
@@ -46,9 +55,6 @@ class StudentSelectionableViewController: UITableViewController {
         selectionDelegate?.setStudent(selectedItem: students[indexPath.item])
         self.navigationController?.popViewController(animated: true)        
     }
-    
-    @IBAction func unwindCancel(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    //MARK: TableView methods
     
 }

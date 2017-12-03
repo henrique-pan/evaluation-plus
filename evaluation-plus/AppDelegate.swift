@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-20.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 

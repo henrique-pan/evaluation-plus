@@ -2,18 +2,21 @@
 //  NewProjectTableViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-20.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+//TableViewController that shows project's details
 class NewProjectTableViewController: UITableViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldDescription: UITextField!
     @IBOutlet weak var labelWeight: UILabel!
     @IBOutlet weak var sliderWeight: UISlider!
+    //MARK: Outlets
     
     //UserDefaults
     private let userDefaults = UserDefaults.standard
@@ -55,6 +58,7 @@ class NewProjectTableViewController: UITableViewController {
         }
     }
     
+    //MARK: Actions
     @IBAction func save(_ sender: UIBarButtonItem) {
         
         if editingWeight == nil {
@@ -107,6 +111,6 @@ class NewProjectTableViewController: UITableViewController {
         labelWeight.textColor = UIColor.black
         labelWeight.text = "\(editingWeight! * 10)%"
     }
-    
+    //MARK: Actions
 }
 

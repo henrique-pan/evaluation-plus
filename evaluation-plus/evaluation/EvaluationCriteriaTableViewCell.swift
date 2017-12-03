@@ -2,24 +2,28 @@
 //  EvaluationCriteriaTableViewCell.swift
 //  evaluation-plus
 //
-//  Created by Henrique Nascimento on 2017-11-26.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+//TableViewCell that represents a criteria
 class EvaluationCriteriaTableViewCell: UITableViewCell {
     
+    //MARK: Outlets
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var labelSliderValue: UILabel!
     @IBOutlet weak var labelGrade: UILabel!
     @IBOutlet weak var textFieldComment: UITextField!
+    //MARK: Outlets
     
     var criteria: String?
     var existentGrade: Int?
     
     var gradeDelegate: GradeDelegate?
     
+    //MARK: Actions
     @IBAction func valueChanged(_ sender: UISlider) {
         self.accessoryType = .checkmark
 
@@ -55,4 +59,5 @@ class EvaluationCriteriaTableViewCell: UITableViewCell {
     @IBAction func textFieldValueChanged(_ sender: UITextField) {
         gradeDelegate!.updateComment(newCriteria: criteria!, newComment: textFieldComment.text!)
     }
+    //MARK: Actions
 }

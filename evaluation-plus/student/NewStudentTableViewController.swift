@@ -2,16 +2,19 @@
 //  NewStudentTableViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-20.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+//TableViewController that shows project's details
 class NewStudentTableViewController: UITableViewController {
 
+    //MARK: Outlets
     @IBOutlet weak var textFieldId: UITextField!
     @IBOutlet weak var textFieldName: UITextField!
+    //MARK: Outlets
     
     //UserDefaults
     private let userDefaults = UserDefaults.standard
@@ -48,7 +51,7 @@ class NewStudentTableViewController: UITableViewController {
         }
     }
     
-    
+    //MARK: Actions
     @IBAction func save(_ sender: UIBarButtonItem) {
         if !textFieldId.text!.isEmpty && !textFieldName.text!.isEmpty {
             if let id = Int(textFieldId.text!) {
@@ -93,7 +96,7 @@ class NewStudentTableViewController: UITableViewController {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+    //MARK: Actions
     
 }
 

@@ -2,12 +2,13 @@
 //  Evaluation.swift
 //  evaluation-plus
 //
-//  Created by Henrique Nascimento on 2017-11-28.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import Foundation
 
+// Entity that represents each Evaluation
 class Evaluation: NSObject, NSCoding {
     
     var student: Student!
@@ -15,6 +16,7 @@ class Evaluation: NSObject, NSCoding {
     var grades: [String:Int]!
     var comments: [String:String]!
     
+    // Evaluation constructor
     init(student: Student!, project: Project!, grades: [String:Int]!, comments: [String:String]!) {
         self.student = student
         self.project = project
@@ -22,6 +24,7 @@ class Evaluation: NSObject, NSCoding {
         self.comments = comments
     }
     
+    // Serialization to Userdefaults
     required convenience init(coder aDecoder: NSCoder) {
         let student = aDecoder.decodeObject(forKey: "student") as! Student
         let project = aDecoder.decodeObject(forKey: "project") as! Project
@@ -30,6 +33,7 @@ class Evaluation: NSObject, NSCoding {
         self.init(student: student, project: project, grades: grades, comments: comments)
     }
     
+    // Serialization to Userdefaults
     func encode(with aCoder: NSCoder) {
         aCoder.encode(student, forKey: "student")
         aCoder.encode(project, forKey: "project")

@@ -2,14 +2,16 @@
 //  NewEvaluationViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-20.
+//  Created by Henrique Nascimento on 2017-11-19.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+// View Controller to show the details of an evaluation
 class EvaluationDetailsViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var labelStudent: UILabel!
     @IBOutlet weak var labelProject: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +23,7 @@ class EvaluationDetailsViewController: UIViewController {
     @IBOutlet weak var labelWeight: UILabel!
     @IBOutlet weak var imageArrow: UIImageView!
     @IBOutlet weak var imageArrowProject: UIImageView!
+    //MARK: Outlets
     
     var comments = [String:String]()
     var grades = [String:Int]()
@@ -68,6 +71,7 @@ class EvaluationDetailsViewController: UIViewController {
         imageArrowProject.isHidden = true
     }
     
+    //MARK: Actions
     @IBAction func save(_ sender: UIBarButtonItem) {
         if grades.count < 5 {
             let alert = UIAlertController(title: "Attention",
@@ -116,6 +120,7 @@ class EvaluationDetailsViewController: UIViewController {
         grades = [String:Int]()
         comments = [String:String]()
     }
+    //MARK: Actions
     
     // MARK: Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -203,7 +208,6 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
                 newCell?.criteria = c
                 cells[c] = newCell
             }
-            
         }
         
         cell = cells[criteria]
@@ -214,8 +218,7 @@ extension EvaluationDetailsViewController: UITableViewDelegate, UITableViewDataS
             if !comments.isEmpty && comments[criteria] != nil {
                 cell?.textFieldComment.text = comments[criteria]
             }
-        }
-        
+        }        
         return cell!
     }
 }

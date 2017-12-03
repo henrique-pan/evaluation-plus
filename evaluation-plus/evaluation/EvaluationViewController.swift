@@ -2,15 +2,18 @@
 //  ViewController.swift
 //  evaluation-plus
 //
-//  Created by eleves on 2017-11-20.
+//  Created by Henrique Nascimento on 2017-11-20.
 //  Copyright © 2017 com.henrique. All rights reserved.
 //
 
 import UIKit
 
+// View Controller to show the existent Evaluations
 class EvaluationViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
+    //MARK: Outlets
     
     var students = [(key: Int, value:Student)]()
     var sections = [String]()
@@ -56,6 +59,21 @@ class EvaluationViewController: UIViewController {
         }
     }
     
+    func sortStudents(evaluations: [Int : Evaluation]!) {
+        students.removeAll()
+        
+        let studentIds = Array(evaluations!.keys)
+        for id in studentIds {
+            students.append((key:id, value: evaluations![id]!.student))
+        }
+        
+        let tempStds = students.sorted(by: { t1, t2 in
+            return t1.value.name! < t2.value.name
+        })
+        
+        students = tempStds
+    }
+    
     // MARK: Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -76,22 +94,6 @@ class EvaluationViewController: UIViewController {
         }
     }
     // MARK: Prepare for segue
-    
-    func sortStudents(evaluations: [Int : Evaluation]!) {
-        students.removeAll()
-        
-        let studentIds = Array(evaluations!.keys)
-        for id in studentIds {
-            students.append((key:id, value: evaluations![id]!.student))
-        }
-        
-        let tempStds = students.sorted(by: { t1, t2 in
-            return t1.value.name! < t2.value.name
-        })
-        
-        students = tempStds
-    }
-    
 }
 
 //MARK: Extension TableViewController
@@ -117,8 +119,6 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.textColor = UIColor.white
         header.backgroundView?.backgroundColor = UIColor(red: 201/255, green: 168/255, blue: 89/255, alpha: 1.0)
     }
-    // UIColor(red: 201/255, green: 168/255, blue: 89/255, alpha: 1.0)
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -171,12 +171,11 @@ extension EvaluationViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 self.tableView.endUpdates()
             }
-            
-           
         }
     }
 }
 
+// Status bar to navigation controller
 extension UINavigationController {
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
