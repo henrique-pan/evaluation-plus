@@ -193,7 +193,7 @@ extension ProjectViewController: UISearchBarDelegate {
             isSearching = true
             filteredProjects = projects.filter({ project in
                 let typedTextLowercased = searchBar.text!.lowercased()
-                let projectName = project.name.folding(options: .diacriticInsensitive, locale: .current)
+                let projectName = project.name.folding(options: .diacriticInsensitive, locale: .current).lowercased()
                 return projectName.contains(typedTextLowercased)
             })
             tableView.reloadData()

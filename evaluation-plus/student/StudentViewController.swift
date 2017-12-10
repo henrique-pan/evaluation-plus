@@ -194,7 +194,7 @@ extension StudentViewController: UISearchBarDelegate {
             isSearching = true
             filteredStudents = students.filter({ student in
                 let typedTextLowercased = searchBar.text!.lowercased()
-                let studentName = student.name.folding(options: .diacriticInsensitive, locale: .current)
+                let studentName = student.name.folding(options: .diacriticInsensitive, locale: .current).lowercased()
                 return studentName.contains(typedTextLowercased)
             })
             tableView.reloadData()
